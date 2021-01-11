@@ -1,0 +1,355 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    background: black;
+    color: white;
+    font-family: monospace;
+}
+*:focus{
+    outline: none;
+}
+.box{
+    position: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box .contents{
+    display: block;
+}
+.box .contents h1{
+    text-align: center;
+    padding: 20px;
+    font-size: 3rem;
+    color: blue;
+    font-family: fantasy;
+    transform: scaleX(1.2);
+}
+.box .contents h1::before{
+    content: "TicTacToe";
+    color: black;
+    position: absolute;
+    transform: translate(-3px,3px);
+    animation: live 30s linear infinite;
+}
+@keyframes live 
+{
+    0%{
+        transform: translate(-2px,2px);
+    }
+    25%{
+        transform: translate(-2px,-2px);
+    }
+    50%{
+        transform: translate(2px,-2px);
+    }
+    75%{
+        transform: translate(2px,2px);
+    }
+    100%{
+        transform: translate(-2px,2px);
+    }
+}
+.box .contents input{
+    margin: auto;
+    margin-top: 50px;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+}
+.box .contents .flx{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.box .contents .flx .dum{
+    flex-grow: 1;
+    color: transparent;
+}
+.box .contents .flx button{
+    margin: 30px 40px;
+    padding: 10px;
+    border-radius: 15px;
+}
+.box .contents h3{
+    font-size: 2.5rem;
+    color: blue;
+}
+.box .contents button{
+    display: block;
+    padding: 10px;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 40px;
+    border-color: white;
+    color: blue;
+    font-size: 1.4rem;
+}
+.vsbox{
+    margin-top: 50px;
+}
+.vsbox .p1,.vsbox .p2,.vsbox .vs{
+    font-size: 2rem;
+    padding: 3px;
+    color: #0f0;
+    font-family: cursive;
+    transition: all 0.5s;
+}
+.vsbox .vs{
+    text-align: center;
+    font-size: 1.5rem;
+    color: blue;
+}
+.vsbox .p2{
+    text-align: right;;
+    color: #f00;
+}
+.vsbox .xth{
+    padding: 40px;
+    font-size: 3rem;
+    text-align: center;
+    color: blue;
+    font-weight: bolder;
+    font-family: cursive;
+}
+.box .contents .eleflx{
+    display: flex;
+}
+.box .contents .eleflx .ele{
+    display: flex;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+.box .contents .eleflx .ele.b{
+    border-bottom-color: transparent;
+}
+.box .contents .eleflx .ele.t{
+    border-top-color: transparent;
+}
+.box .contents .eleflx .ele.l{
+    border-left-color: transparent;
+}
+.box .contents .eleflx .ele.r{
+    border-right-color: transparent;
+}
+.box .contents .eleflx .ele .eleabs{
+    position: absolute;
+    height: 95px;
+    width: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.drawx{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.drawx .xline1,.drawx .xline2{
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    transform: rotate(135deg);
+    overflow: hidden;
+    background: transparent;
+    border-radius: 10px;
+}
+.drawx .xline1{    
+    transform: rotate(45deg);
+}
+.drawx .xline1 .xl,.drawx .xline2 .xl{
+    width: 0px;
+    height: 20px;
+    background: #f00;
+    animation: drawme 0.7s linear forwards;
+}
+.drawx .xline2 .xl{
+    animation-delay: 0.7s;
+}
+@keyframes drawme{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+.drawo{
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.drawo .dummy,.drawo .oli1,.drawo .oli2{
+    height: 80px;
+    width: 40px;
+    position: absolute;
+    background: black;
+    left: 0px;
+    animation: disapper50 1s linear forwards;
+}
+.drawo .oli1,.drawo .oli2{
+    width: 78px;
+    background: linear-gradient(90deg,#0f0 0%,#0f0 50%,transparent 50%,transparent 100%);
+    animation: rot50 0.5s linear forwards;
+}
+.drawo .oli2{
+    animation: rot100 1s linear forwards;
+}
+.drawo .cir{
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    position: absolute;
+}
+@keyframes disapper50{
+    0%{
+        opacity: 1;
+    }
+    49%{
+        opacity: 1;
+    }
+    51%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes rot50{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+@keyframes rot100{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.box .contents .head{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: blue;
+}
+.board{
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.board .linebox{
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.board .linebox .line{
+    width: 320px;
+    height: 14px;
+    background: transparent;
+    z-index: 1;
+    overflow: hidden;
+    transform: rotate(90deg) translateY(105px);
+}
+.board .linebox .line .cut{
+    height: 140px;
+    width: 0px;
+    background: red;
+}
+@keyframes anim1{
+    0%{
+        width: 0px;
+    }
+    100%{
+        width: 100%;
+    }
+}
+#temp{
+    position: absolute;
+    z-index: -100;
+    top: 50%;
+    left: 50%;
+    background: transparent;
+    transform: translate(-50%,-50%);
+    font-size: 4rem;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    transition: all 0.25s;
+    padding: 20px;
+    opacity: 0;
+}
+.goo{
+    font-size: 4rem;
+    margin: 40px 20px;
+    color: blue;
+}
+.gos{    
+    margin: 10% 0px;
+    text-align: center;
+    font-size: 5rem;
+    color: blue;
+}
+.box .contents .msg .head{
+    text-align: center;
+    font-size: 3rem;
+    padding: 2px;
+    border-bottom: 1px solid blue;
+    color: blue;
+    margin: 0px;
+}
+.msg .msgflx{
+    display: flex;
+}
+.msg .msgbox{
+    height: 100px;
+    overflow-y: scroll;
+    padding: 0px 10%;
+}
+.msg .msgflx input{
+    margin: 0px;
+    flex-grow: 1;
+}
+.msg .msgflx button{
+    margin: 0px;
+}
+.msgmsg .msgname{
+    opacity: 0.7;
+    font-size: 1rem;
+}
+.msgmsg .msgcontent{
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+.msgmsg .msgname.me{
+    text-align: right;
+}
+.msgmsg .msgcontent.me{
+    text-align: right;
+}
+::-webkit-scrollbar{
+    width: 2px;
+    background: black;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TicTacToe:CodingNeverEnds</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+  </head>
+  <body onload="init()">
+
+    <div class="box" id="init">
+      <div class="contents">
+        <h1>TicTacToe</h1>
+        <input type="text" placeholder="Player Name" id="playername">
+        <input type="text" placeholder="RoomName" id="rmname">
+        <div class="flx">
+          <button onclick="gamemanager.tryjoin(this)">Join</button><div class="dum"></div><button onclick="gamemanager.trycreate(this)">Create</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="box" id="waiting">
+      <div class="contents">
+          <h3>Waiting For Others</h3>
+         <button id="ready" onclick="gamemanager.tryinitgames()">Ready</button>
+      </div>
+    </div>
+
+    <div class="box" id="vs">
+      <div class="contents">
+        <h1>TicTacToe</h1>
+        <div class="vsbox">
+          <div class="p1" id="p1">Player1</div>
+          <div class="vs">V/S</div>
+          <div class="p2" id="p2">Player2</div>
+          <div class="xth" id="roundup1">
+            Round 1
+         </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box" id="ingame">
+      <div class="contents">
+        <div class="head" id="roundup2">Round 1</div>
+        <div class="board">
+          <div class="linebox"><div class="line" id="line"><div class="cut" id="cut"></div></div></div>
+          <div class="eleflx">
+            <div class="ele t l"><div class="eleabs" onclick="trymarking(0)"></div></div>
+            <div class="ele t"><div class="eleabs" onclick="trymarking(1)"></div></div>
+            <div class="ele t r"><div class="eleabs" onclick="trymarking(2)"></div></div>
+          </div>
+          <div class="eleflx">
+            <div class="ele l"><div class="eleabs" onclick="trymarking(3)"></div></div>
+            <div class="ele"><div class="eleabs" onclick="trymarking(4)"></div></div>
+            <div class="ele r"><div class="eleabs" onclick="trymarking(5)"></div></div>
+          </div>
+          <div class="eleflx">
+            <div class="ele b l"><div class="eleabs" onclick="trymarking(6)"></div></div>
+            <div class="ele b"><div class="eleabs" onclick="trymarking(7)"></div></div>
+            <div class="ele b r"><div class="eleabs" onclick="trymarking(8)"></div></div>
+          </div>
+        </div>
+        <div class="msg">
+          <div class="head">Chats</div>
+          <div class="msgbox" id="msgbox">
+            <div class="msgmsg">
+              <div class="msgname">Gagan</div>
+              <div class="msgcontent">Helloo</div>
+            </div>
+            <div class="msgmsg">
+              <div class="msgname me">You</div>
+              <div class="msgcontent me">Helloo</div>
+            </div>
+          </div>
+          <div class="msgflx">
+            <input type="text" id="msg"><button onclick="sendmsg()">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box" id="fscreen">
+      <div class="contents">
+        <h1>TicTacToe</h1>
+        <div class="vsbox">
+          <div class="p1" id="p11">Player1</div>
+          <div class="vs">V/S</div>
+          <div class="p2" id="p22">Player2</div>
+        </div>
+        <div class="gos" id="gos">Winner</div>
+        <div class="goo">Game Over</div>
+        <button onclick="NewGame()">New Game</button>
+      </div>
+    </div>
+    <div id="temp"></div>
+    <!--
+    <div class="box" id="go">
+      <div class="contents">
+        Tie
+      </div>
+    </div>
+    -->
+  </body>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+    apiKey: "AIzaSyCMRxOaSnssAKN5qozRZG-U4FC1drMigLs",
+    authDomain: "bingo-1d016.firebaseapp.com",
+    databaseURL: "https://bingo-1d016.firebaseio.com",
+    projectId: "bingo-1d016",
+    storageBucket: "bingo-1d016.appspot.com",
+    messagingSenderId: "166645970662",
+    appId: "1:166645970662:web:9a7333358d602467b3ad27",
+    measurementId: "G-D2CT46GNJV"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+  <script src="index.js"></script>
+</html>
